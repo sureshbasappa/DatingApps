@@ -17,7 +17,6 @@ export class LoodingInterceptor implements HttpInterceptor {
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
     this.bussyService.bussy();
     return next.handle(request).pipe(
-      delay(1000),
       finalize(()=>{
         this.bussyService.idle();
       })
