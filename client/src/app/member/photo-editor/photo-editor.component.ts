@@ -25,7 +25,9 @@ export class PhotoEditorComponent implements OnInit {
    }
 
   ngOnInit(): void {
+    console.log("Suresh-31");
     this.initializerUploader();
+    console.log("Suresh-30");
   }
 
     fileOverBase(e:any){
@@ -45,6 +47,7 @@ export class PhotoEditorComponent implements OnInit {
   }
 
   initializerUploader(){
+    console.log("Suresh-33");
     this.uploader = new FileUploader({
       url:this.baseUrl+'users/add-photo',
       authToken: ' Bearer ' + this.user.token,
@@ -54,8 +57,10 @@ export class PhotoEditorComponent implements OnInit {
       autoUpload:false,
       maxFileSize:10 * 1024 * 1024
     })
+    console.log("Suresh-33");
     this.uploader.onAfterAddingFile= (file) => {
       file.withCredentials=false;
+      console.log("Suresh-34");
     }
 
     this.uploader.onSuccessItem=(item, resopose,status, header)=>{

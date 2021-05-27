@@ -25,6 +25,7 @@ export class MemberEditComponent implements OnInit {
   constructor(private accountService: AccountService, private memberService: MembersService, 
     private toastr: ToastrService) { 
       this.accountService.currentUsers$.pipe(take(1)).subscribe(user => this.user = user);
+      console.log(this.user.username + "Suresh 4");
   }
 
   ngOnInit(): void {
@@ -32,8 +33,8 @@ export class MemberEditComponent implements OnInit {
   }
 
   loadMember() {
-    console.log(this.user.userName + " Suresh 1");
-    this.memberService.getMember(this.user.userName).subscribe(member => {
+    console.log(this.user.username + " Suresh 1");
+    this.memberService.getMember(this.user.username).subscribe(member => {
       this.member = member;
       console.log(this.member + "Suresh 2");
     })

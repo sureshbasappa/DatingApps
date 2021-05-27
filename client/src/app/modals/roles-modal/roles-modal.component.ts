@@ -24,7 +24,7 @@ export class RolesModalComponent implements OnInit {
   updateRoles(){
     this.updateSelectedRoles.emit(this.roles);
     this.bsModalRef.hide();
-    this.toster.success('you have update the ' + this.user.userName + ' roles');
+    this.toster.success('you have update the ' + this.user.username + ' roles');
   }
 
 }

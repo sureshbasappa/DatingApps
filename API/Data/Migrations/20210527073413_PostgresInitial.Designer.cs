@@ -10,7 +10,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace API.Data.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20210525045632_PostgresInitial")]
+    [Migration("20210527073413_PostgresInitial")]
     partial class PostgresInitial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -91,7 +91,7 @@ namespace API.Data.Migrations
                     b.Property<string>("Intests")
                         .HasColumnType("text");
 
-                    b.Property<string>("IsKnownAs")
+                    b.Property<string>("KnownAs")
                         .HasColumnType("text");
 
                     b.Property<DateTime>("LastActive")

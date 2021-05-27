@@ -50,9 +50,9 @@ namespace API.Controllers
 
             return new UserDto
             {
-                UserName = user.UserName,
+                Username = user.UserName,
                 Token = await _tokenservice.CreateToken(user),
-                IsKnownAs = user.IsKnownAs,
+                KnownAs = user.KnownAs,
                 Gender = user.Gender
             };
         }
@@ -63,7 +63,7 @@ namespace API.Controllers
         {
             var user = await _userManager.Users
             .Include(p => p.Photos)
-            .SingleOrDefaultAsync(x => x.UserName == loginDto.userName.ToLower());
+            .SingleOrDefaultAsync(x => x.UserName == loginDto.Username.ToLower());
 
             if (user == null) return Unauthorized("Invalid username");
 
@@ -75,10 +75,10 @@ namespace API.Controllers
 
             return new UserDto
             {
-                UserName = user.UserName,
+                Username = user.UserName,
                 Token = await _tokenservice.CreateToken(user),
                 PhotoUrl = user.Photos.FirstOrDefault(x => x.IsMain)?.Url,
-                IsKnownAs = user.IsKnownAs,
+                KnownAs = user.KnownAs,
                 Gender = user.Gender
 
             };

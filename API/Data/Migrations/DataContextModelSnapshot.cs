@@ -89,7 +89,7 @@ namespace API.Data.Migrations
                     b.Property<string>("Intests")
                         .HasColumnType("text");
 
-                    b.Property<string>("IsKnownAs")
+                    b.Property<string>("KnownAs")
                         .HasColumnType("text");
 
                     b.Property<DateTime>("LastActive")

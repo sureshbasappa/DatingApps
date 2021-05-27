@@ -1,7 +1,7 @@
 <div class="row" >
     <div class="col-4">
         <div class="card">
-            <img src="{{member.photoUrl || './assets/user.png'}}" alt="{{member.isKnownAs}}" 
+            <img src="{{member.photoUrl || './assets/user.png'}}" alt="{{member.knownAs}}" 
             class="card-img-top img-thumbnail">
             <div class="card-body">
                 <div class="md-2" *ngIf="(presence.onlineUsers$ |async).includes(member.username)">
@@ -35,7 +35,7 @@
     </div>
     <div class="col-8">
         <tabset class="member-tabset" #memberTabs>
-            <tab heading='About {{member.isKnownAs}}' (selectTab)="onTabActivated($event)">
+            <tab heading='About {{member.knownAs}}' (selectTab)="onTabActivated($event)">
                 
                 <h1>Description</h1>
                 <p>{{member.interduction}}</p>

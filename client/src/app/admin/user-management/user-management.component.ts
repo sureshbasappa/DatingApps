@@ -19,13 +19,17 @@ bsModalRef:BsModalRef;
 
   this.getUsersWithRoles();   
   }
+
+
   getUsersWithRoles(){
-  this.adminService.getUsersWithRoles().subscribe(users=>{
-    this.users=users;
-  })
+      this.adminService.getUsersWithRoles().subscribe(users=>{
+        this.users=users;
+        console.log( this.users);
+      })
   }
 
   openRolesModal(user:User){ 
+    console.log( user.username);
       const config = {
       class:'modal-dialog-centered',
       initialState: {
@@ -40,8 +44,9 @@ bsModalRef:BsModalRef;
       const rolesToUpdate = {
         roles: [...values.filter(el => el.checked === true).map(el => el.name)]
       };
+
       if (rolesToUpdate) {
-        this.adminService.updateUserRoles(user.userName, rolesToUpdate.roles).subscribe(() => {
+        this.adminService.updateUserRoles(user.username, rolesToUpdate.roles).subscribe(() => {
           user.roles = [...rolesToUpdate.roles]
         })
       }

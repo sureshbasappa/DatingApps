@@ -91,7 +91,7 @@ namespace API.SignalR
                 if (connections != null)
                 {
                     await _presenceHub.Clients.Clients(connections).SendAsync("NewMessageRecived",
-                    new { username = sender.UserName, knownAs = sender.IsKnownAs });
+                    new { username = sender.UserName, knownAs = sender.KnownAs });
                 }
             }
 

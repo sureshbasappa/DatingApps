@@ -26,6 +26,7 @@ currentUsers$ = this.currentUserSource.asObservable();
         if(user){
           this.setCurrentUser(user);
           this.presence.createHubConnection(user);
+          console.log(user + "Suresh 5");
           
         }
       })
